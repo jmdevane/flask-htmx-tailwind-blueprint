@@ -1,6 +1,8 @@
 # Flask Blueprint Boilerplate App
 ### A template for Flask apps utilizing the Blueprint architecture.
 
+The internet is littered with Flask tutorials and templates. Here is another one.
+
 1. Clone the repository.
 
     `git clone https://github.com/jmdevane/flask-blueprint-boilerplate.git`
