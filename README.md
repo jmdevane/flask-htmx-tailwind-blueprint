@@ -17,15 +17,13 @@ The internet is littered with Flask tutorials and templates. Here is another one
 
 4. Set Flask app secret key (for securing client-side sessions).
 
-    This repo assumes `FLASK_SECRET_KEY` is set as an environment variable. But `config.py` can be edited to have the key directly. Open a python interpreter to generate a key:
-
     ```
         >>> import secrets
         >>> secrets.token_hex(16)
         'da08208f2fd9b29c21e6655757ce4f9a'
     ```
 
-    Either set key as an environment variable or edit `config.py`:
+    Either set key as an environment variable `FLASK_SECRET_KEY` (current state) or edit `config.py` directly:
 
     `   SECRET_KEY = 'da08208f2fd9b29c21e6655757ce4f9a'`
 
