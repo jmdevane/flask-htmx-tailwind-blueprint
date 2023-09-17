@@ -12,10 +12,13 @@ def create_app(config_class=Config):
 
     assets = Environment(app)
     css = Bundle("src/main.css", output="dist/main.css")
+    js = Bundle("src/*.js", output="dist/main.js")
 
     from flask_app.main.routes import main
     app.register_blueprint(main)
     assets.register("css", css)
+    assets.register("js", js)
     css.build()
+    js.build()
 
     return app

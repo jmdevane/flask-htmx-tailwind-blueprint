@@ -1,6 +1,7 @@
 module.exports = {
   content: [
-    './templates/**/*.html',
+    './flask_app/templates/**/*.html',
+    './flask_app/static/src/**/*.js'
   ],
   theme: {
     extend: {},
