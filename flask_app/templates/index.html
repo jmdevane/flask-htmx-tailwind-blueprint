@@ -2,4 +2,30 @@
 {% block content%}
     <h1 class="text-3xl">Welcome to My Website</h1>
     <p>This is the homepage of my website. Feel free to browse around and learn more about me.</p>
+    <div class="w-small w-2/3 mx-auto py-10 text-gray-600">
+      <input
+        type="text"
+        name="search"
+        hx-post="/search"
+        hx-trigger="keyup changed delay:250ms"
+        hx-indicator=".htmx-indicator"
+        hx-target="#search-results"
+        placeholder="Search"
+        class="bg-white h-10 px-5 pr-10 rounded-full text-2xl focus:outline-none"
+      >
+      <span class="htmx-indicator">Searching...</span>
+    </div>
+    <table class="border-collapse w-small w-2/3 mx-auto">
+      <thead>
+        <tr>
+          <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">ticker</th>
+          <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">name</th>
+          <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">signal</th>
+          <th class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell">date of signal</th>
+        </tr>
+      </thead>
+      <tbody id="search-results">
+        {% include 'test_table.html' %}
+      </tbody>
+    </table>
 {% endblock content%}

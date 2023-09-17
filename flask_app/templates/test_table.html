@@ -1,0 +1,16 @@
+{% if tickers|length>0 %}
+  {% for ticker in tickers %}
+    <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+      <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ticker.name}}</td>
+      <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ticker.ticker}}</td>
+      <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">{{ticker.date_of_signal}}</td>
+      <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
+        {% if ticker.signal %}
+          <span class="rounded bg-green-400 py-1 px-3 text-xs font-bold">Long</span>
+        {% else %}
+          <span class="rounded bg-red-400 py-1 px-3 text-xs font-bold">Short</span>
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+{% endif %}
