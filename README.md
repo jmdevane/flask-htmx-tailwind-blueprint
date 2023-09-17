@@ -3,6 +3,9 @@
 
 The internet is littered with Flask tutorials and templates. Here is another one.
 
+**THIS BRANCH INCLUDES TAILWIND+HTMX**
+[reference tutorial](https://testdriven.io/blog/flask-htmx-tailwind/)
+
 1. Clone the repository.
 
     `git clone https://github.com/jmdevane/flask-blueprint-boilerplate.git`
