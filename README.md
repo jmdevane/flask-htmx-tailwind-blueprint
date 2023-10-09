@@ -4,6 +4,7 @@
 The internet is littered with Flask tutorials and templates. Here is another one.
 
 **THIS BRANCH INCLUDES TAILWIND+HTMX**
+`git clone --single-branch --branch feature/tailwind-htmx git@github.com:jmdevane/flask-blueprint-boilerplate.git`
 [reference tutorial](https://testdriven.io/blog/flask-htmx-tailwind/)
 
 1. Clone the repository.
@@ -43,3 +44,21 @@ The internet is littered with Flask tutorials and templates. Here is another one
     `python run.py`
 
 8. Navigate to `http://localhost:5000/` (or ip listed in console if running remotely) to view.
+
+Steps 7-8 can also be excuted via `run.sh`.
+
+---
+
+Production deployment via docker:
+1. Create an `env.list` file in the root directory:
+```
+FLASK_SECRET_KEY
+DEPLOYMENT_MODE=prod
+```
+2. Build Docker image
+    
+    `docker image build -t rblncd .`
+    
+3. Run container
+    
+    `docker run --env-file env.list --name="rblncd" -p 8000:8000 rblncd`
