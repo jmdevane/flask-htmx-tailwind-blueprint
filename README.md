@@ -1,11 +1,5 @@
-# Flask Blueprint Boilerplate App
-### A template for Flask apps utilizing the Blueprint architecture.
-
-The internet is littered with Flask tutorials and templates. Here is another one.
-
-**THIS BRANCH INCLUDES TAILWIND+HTMX**
-`git clone --single-branch --branch feature/tailwind-htmx git@github.com:jmdevane/flask-blueprint-boilerplate.git`
-[reference tutorial](https://testdriven.io/blog/flask-htmx-tailwind/)
+# Flask Blueprint + HTMX + Tailwind CSS Boilerplate App
+### This is my boilerplate flask app. There are many like it, but this one is mine.
 
 1. Clone the repository.
 
@@ -62,3 +56,8 @@ DEPLOYMENT_MODE=prod
 3. Run container
     
     `docker run --env-file env.list --name="rblncd" -p 8000:8000 rblncd`
+
+---
+REFERENCES
+
+[flask htmx tailwind tutorial](https://testdriven.io/blog/flask-htmx-tailwind/)
