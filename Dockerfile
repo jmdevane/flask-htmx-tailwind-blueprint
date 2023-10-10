@@ -13,7 +13,7 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # Expose port for the Flask app
-EXPOSE 8002
+EXPOSE 8000
 
 # Specify the command to run on container start
 CMD ["./run.sh"]
