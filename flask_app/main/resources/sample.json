@@ -1,0 +1,8 @@
+{
+    "data":[
+        {"ticker": "SPY", "name": "S&P 500", "signal": false, "date of signal":"2023-09-17"},
+        {"ticker": "QQQ", "name": "Nasdaq-100", "signal": false, "date of signal":"2023-09-15"},
+        {"ticker": "NVDA", "name": "Nvidia", "signal": false, "date of signal":"2023-09-16"},
+        {"ticker": "TUA", "name": "ST Treasury Futures", "signal": true, "date of signal":"2023-09-14"}
+    ]
+}

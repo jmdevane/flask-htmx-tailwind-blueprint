@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>{{ title }}</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+
+    {% assets "css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+
+    {% assets "js" %}
+        <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    <title>Flask + htmlx + Tailwind CSS</title>
   </head>
-  <body>
-    <header>
-      <!-- Navigation menu goes here -->
-    </header>
-    
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    
-    <footer>
-      <!-- Footer content goes here -->
-    </footer>
+  <body class="bg-blue-100">
+    {% block content %}
+    {% endblock content %}
   </body>
 </html>
