@@ -1,6 +1,6 @@
 import json
 import os
-from flask import render_template, request, Blueprint
+from flask import render_template, request,make_response, Blueprint
 
 main = Blueprint("main", __name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -27,3 +27,17 @@ def search_tickers():
             res_tickers.append(ticker)
 
     return render_template("test_table.html", tickers=res_tickers)
+
+
+@main.route("/sitemap.xml")
+def sitemap():
+    pages = [
+      {"loc": "http://localhost:5000/"},
+      {"loc": "http://localhost:5000/search"},
+    ]
+  
+    sitemap_xml = render_template("sitemap_template.xml", pages=pages)
+    response = make_response(sitemap_xml)
+    response.headers["Content-Type"] = "application/xml"
+  
+    return response
