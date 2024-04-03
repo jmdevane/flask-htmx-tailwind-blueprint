@@ -1,6 +1,6 @@
 import json
 import os
-from flask import render_template, request,make_response, Blueprint
+from flask import render_template, request,make_response, Blueprint, url_for
 
 main = Blueprint("main", __name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -11,11 +11,17 @@ with open(f"{APP_ROOT}/resources/sample.json") as f:
 @main.route("/index", methods=["GET", "POST"])
 def index():
 
-    return render_template("index.html", title="welcome")
+    meta = {
+        "title": "Home - Flask App",
+        "description": "My Flask App",
+        "og_url": url_for('main.index', _external=True)
+    }
+
+    return render_template("index.html", meta=meta)
 
 
 @main.route("/search", methods=["POST"])
-def search_tickers():
+def search():
     search_term = request.form.get("search")
 
     if not len(search_term):
@@ -26,7 +32,13 @@ def search_tickers():
         if search_term.lower() in ticker["name"].lower():
             res_tickers.append(ticker)
 
-    return render_template("test_table.html", tickers=res_tickers)
+    meta = {
+        "title": "Home - Flask App",
+        "description": "HTMX Dynamic Search",
+        "og_url": url_for('main.search', _external=True)
+    }
+
+    return render_template("test_table.html", tickers=res_tickers, meta=meta)
 
 
 @main.route("/sitemap.xml")

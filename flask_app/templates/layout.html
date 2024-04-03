@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ meta['description'] }}">
+    <meta property="og:title" content="{{ meta['title'] }}">
+    <meta property="og:site_name" content="Macro Sherpa">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="{{ meta['description'] }}">
+    <meta property="og:url" content="{{ meta['og_url'] }}">
+
     {% if request.path in ['/', '/index'] %}
         <link rel="canonical" href="http://localhost:5000/" />
     {% endif %}
@@ -16,7 +23,7 @@
         <script src="{{ ASSET_URL }}"></script>
     {% endassets %}
 
-    <title>Flask + htmlx + Tailwind CSS</title>
+    <title>{{ meta["title"] }}</title>
   </head>
   <body class="bg-blue-100">
     {% block content %}
