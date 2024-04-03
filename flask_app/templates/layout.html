@@ -12,7 +12,7 @@
     <meta property="og:url" content="{{ meta['og_url'] }}">
 
     {% if request.path in ['/', '/index'] %}
-        <link rel="canonical" href="http://localhost:5000/" />
+        <link rel="canonical" href="{{ url_for('main.index') }}" />
     {% endif %}
 
     {% assets "css" %}

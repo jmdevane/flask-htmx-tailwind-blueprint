@@ -44,8 +44,8 @@ def search():
 @main.route("/sitemap.xml")
 def sitemap():
     pages = [
-      {"loc": "http://localhost:5000/"},
-      {"loc": "http://localhost:5000/search"},
+      {"loc": url_for("main.index", _external=True)},
+      {"loc": url_for("main.search", _external=True)},
     ]
   
     sitemap_xml = render_template("sitemap_template.xml", pages=pages)
