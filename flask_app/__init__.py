@@ -15,7 +15,11 @@ def create_app(config_class=Config):
     js = Bundle("src/*.js", output="dist/main.js")
 
     from flask_app.main.routes import main
+    from flask_app.api.routes import api
+
     app.register_blueprint(main)
+    app.register_blueprint(api)
+
     assets.register("css", css)
     assets.register("js", js)
     css.build()

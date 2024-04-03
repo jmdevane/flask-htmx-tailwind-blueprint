@@ -1,11 +1,9 @@
-import json
 import os
 from flask import render_template, request,make_response, Blueprint, url_for
 
 main = Blueprint("main", __name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-with open(f"{APP_ROOT}/resources/sample.json") as f:
-    tickers = json.load(f)
+
 
 @main.route("/", methods=["GET", "POST"])
 @main.route("/index", methods=["GET", "POST"])
@@ -18,27 +16,6 @@ def index():
     }
 
     return render_template("index.html", meta=meta)
-
-
-@main.route("/search", methods=["POST"])
-def search():
-    search_term = request.form.get("search")
-
-    if not len(search_term):
-        return render_template("test_table.html", tickers=[])
-
-    res_tickers = []
-    for ticker in tickers["data"]:
-        if search_term.lower() in ticker["name"].lower():
-            res_tickers.append(ticker)
-
-    meta = {
-        "title": "Home - Flask App",
-        "description": "HTMX Dynamic Search",
-        "og_url": url_for('main.search', _external=True)
-    }
-
-    return render_template("test_table.html", tickers=res_tickers, meta=meta)
 
 
 @main.route("/sitemap.xml")
