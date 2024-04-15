@@ -1,5 +1,5 @@
 import os
-from flask import render_template, request,make_response, Blueprint, url_for
+from flask import render_template, request,make_response, Blueprint, url_for, send_from_directory
 
 main = Blueprint("main", __name__)
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -30,3 +30,8 @@ def sitemap():
     response.headers["Content-Type"] = "application/xml"
   
     return response
+
+
+@main.route("/robots.txt")
+def static_from_root():
+    return send_from_directory(current_app.static_folder, request.path[1:])
